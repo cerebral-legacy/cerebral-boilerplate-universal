@@ -20,11 +20,10 @@
   },
   "homepage": "https://github.com/cerebral/cerebral-boilerplate",
   "scripts": {
-    "prestart": "npm run build",
-    "start": "node server_build",
-    "server": "webpack --config webpack.server.config.js --watch",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "rimraf dist && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
+    "start": "cross-env node server_build",
+    "server": "cross-env webpack --config webpack.server.config.js --watch",
+    "build": "cross-env npm run build:client && npm run build:server",
+    "build:client": "cross-env rimraf dist && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "build:server": "cross-env NODE_ENV=production webpack --config ./webpack.server.production.config.js --progress --profile --colors"
   },
   "dependencies": {
